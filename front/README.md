@@ -1,15 +1,10 @@
-# electron-react-webpack
-Try this Electron/React/Webpack2 template for a quick development and prototyping.
-
-![w10 sample](https://cloud.githubusercontent.com/assets/11739632/21486843/dc5e56b8-cbbb-11e6-8891-c5a72e46d8a7.png)
-
 ## Install
 ``` bash
 # Clone the repository
-$ git clone https://github.com/pastahito/electron-react-webpack
+$ git clone https://github.com/kr1an/star-seeker
 
 # Go into the repository
-$ cd electron-react-webpack
+$ cd star-seeker
 
 # Install dependencies
 $ npm install
@@ -67,7 +62,3 @@ $ npm start
     ├── package.json
     ├── webpack.config.js               # Webpack 2 setup
 ```
-
-## Related
-- [electron-vue-webpack](https://github.com/pastahito/electron-vue-webpack) -
-Minimal Electron template using Vue 2 instead of React.
