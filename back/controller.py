@@ -1,19 +1,15 @@
-## compute_input.py
+import sys, json, inspect, os
+from utils.image_parser import *
+import os
 
-import sys, json, numpy as np
+def get_parsed_arguments():
+    photo_paths = json.loads(sys.stdin.readlines()[0])
+    return photo_paths
 
-#Read data from stdin
-def read_in():
-    lines = sys.stdin.readlines()
-    #Since our input would only be having one line, parse our JSON data from that
-    return json.loads(lines[0])
 
-def main():
-    #get our data as an array from read_in()
-    lines = read_in()
-    print json.dumps(lines)
-    return
-    m = [{
+def get_returned_object(photo_paths):
+    return [
+        {
           "header": 'statistic1',
           "content": 'Some statistic written here. Nothing special just some plain row text and nothing more. Hello world or hellow world i do not know.'
         },
@@ -27,10 +23,25 @@ def main():
         }
     ]
 
-    #return the sum to the output stream
-    print json.dumps(m)
+
+def is_photo_paths_valide(photo_paths):
+    try:
+        if os.path.exists(photo_paths['yellowFilterFilePath']):
+            if os.path.exists(photo_paths['blueFilterFilePath']):
+                return True
+        return False
+    except:
+        return False
 
 
-#start process
+def main():
+    photo_paths = get_parsed_arguments()
+    if is_photo_paths_valide(photo_paths):
+        returned_object = get_returned_object(photo_paths)
+        print json.dumps(returned_object)
+    else:
+        print ''
+
+
 if __name__ == '__main__':
     main()
