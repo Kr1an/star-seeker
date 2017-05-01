@@ -27,7 +27,7 @@ export default class ProjectInfo extends React.Component {
   render() {
     let paragraphs = this.state.paragraphs;
     return (
-      <div>
+      <div className="project-info">
         <div className="logo">
             <h1>Star-Seeker</h1>
         </div>
