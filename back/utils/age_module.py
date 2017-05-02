@@ -12,3 +12,8 @@ def age_calculation(M):
         value: age of star cluster
     """
     return 10**10/M**3
+
+def get_statistic(age):
+    return {
+        'header': 'Age',
+        'content': 'Baised on pixel statistic, age of the star claster:' + age}
