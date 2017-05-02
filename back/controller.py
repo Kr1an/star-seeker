@@ -1,6 +1,10 @@
 import sys, json, inspect, os
 from utils import image_parser
 from utils import magnitude
+from utils import color_index
+from utils import special_value
+from utils import main_sequence
+from utils import age_module
 import os
 
 
@@ -21,9 +25,22 @@ def get_returned_object(photo_paths):
     yellow_magnitude_array, blue_magnitude_array = magnitude.pogson_calculation(
         yellow_stars_array, blue_stars_array
     )
-    
+    delta_m_color_index_array = color_index.get_color_index_calculation(
+        blue_magnitude_array,
+        yellow_magnitude_array
+    )
+    special_value = special_value.get_special_value(
+        delta_m_color_index_array,
+        yellow_magnitude_array
+    )
+    special_star_mass = main_sequence.get_mass(special_value)
+    cluster_age = age_module.age_calculation(special_star_mass)
+    sta
 
-    return blue_magnitude_array
+
+    # return blue_magnitude_array + yellow_magnitude_array
+    # return blue_stars_array
+    return delta_m_color_index_array
     return [
         {
           "header": 'statistic1',
@@ -54,7 +71,7 @@ def main():
     photo_paths = get_parsed_arguments()
     if is_photo_paths_valide(photo_paths):
         returned_object = get_returned_object(photo_paths)
-        print json.dumps(returned_object)
+        print returned_object
     else:
         print ''
 

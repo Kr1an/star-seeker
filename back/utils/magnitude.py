@@ -31,7 +31,6 @@ def _pogson_calculation_specific(E1, stars):
     
     
     """
-    E1 = stars[0]
     array_magnitude = []
     for i in xrange(len(stars)):
         delta_m = math.log10(float(E1) / stars[i]) / 0.4
