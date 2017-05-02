@@ -1,6 +1,8 @@
 import sys, json, inspect, os
-from utils.image_parser import *
+from utils import image_parser
+from utils import magnitude
 import os
+
 
 def get_parsed_arguments():
     photo_paths = json.loads(sys.stdin.readlines()[0])
@@ -8,6 +10,20 @@ def get_parsed_arguments():
 
 
 def get_returned_object(photo_paths):
+    yellow_stars_array = image_parser.image_parser(
+        photo_paths['yellowFilterFilePath']
+    )
+    blue_stars_array = image_parser.image_parser(
+        photo_paths['blueFilterFilePath']
+    )
+    blue_magnitude_array = []
+    yellow_magnitude_array = []
+    yellow_magnitude_array, blue_magnitude_array = magnitude.pogson_calculation(
+        yellow_stars_array, blue_stars_array
+    )
+    
+
+    return blue_magnitude_array
     return [
         {
           "header": 'statistic1',
