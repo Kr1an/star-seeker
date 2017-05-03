@@ -38,6 +38,7 @@ export default class Interface extends React.Component {
 
     });
     py.stdout.on('end', function(){
+      console.log(dataString.toString())
       console.log(JSON.parse(dataString.toString()))
       if(dataString === '')
         return

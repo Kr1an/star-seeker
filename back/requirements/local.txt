@@ -1,2 +1,6 @@
 # Pillow library
 Pillow==4.0.0
+
+scipy
+
+scikit-learn
