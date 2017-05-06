@@ -118,7 +118,7 @@ def _get_objects_from_matrix_with_coefficient(matrix, coefficient):
                     is_right = _is_inside_matrix(cur['i'], cur['j']+1, matrix)
                     is_bottom = _is_inside_matrix(cur['i']+1, cur['j'], matrix)
                     is_left = _is_inside_matrix(cur['i'], cur['j']-1, matrix)
-                    object_area += 1
+                    object_area += cur['value']
 
                     if is_top and matrix[cur['i']-1][cur['j']] >= coefficient:
                         elements_queue.append({'i': cur['i']-1, 'j': cur['j'], 'value': matrix[cur['i']-1][cur['j']]})
